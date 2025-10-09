@@ -351,7 +351,7 @@ if __name__ == "__main__":
     # plt.show()
 
     # 可以修改为你要分析的MP3文件路径
-    mp3_file = "6B052518A42ACF20.mp3"  # 替换为实际的MP3文件路径
+    mp3_file = "Assets/6B052518A42ACF20.mp3"  # 替换为实际的MP3文件路径
 
     signal,sr = load_mp3(mp3_file)
 
