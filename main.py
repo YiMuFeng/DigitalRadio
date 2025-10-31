@@ -17,15 +17,111 @@
 """
 __version__ = "0.0.0.0"
 
+from PyQt5.QtWidgets import QApplication, QDialog
+import sys
+
+from UI import MainWindow
 import DigitalModulation
-import UI
-
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
 
 
-# 按装订区域中的绿色按钮以运行脚本。
+def sys_exit(q:int):
+    """强制系统退出的槽函数"""
+    sys.exit(q)
+
+def main():
+    app = QApplication(sys.argv)
+
+    # 设置全局深色样式表
+    app.setStyle("Fusion")
+    app.setStyleSheet("""
+            QMainWindow {
+               background-color: #2d2d2d;  
+            }
+            QMainWindow > QWidget {  
+                background-color: #2d2d2d;
+            }
+            QDialog {
+               background-color: #2d2d2d;
+            }
+            QLabel {
+               color: #ffffff;
+            }
+            QLineEdit {
+               background-color: #333333;
+               color: #ffffff;
+               border: 1px solid #555555;
+               border-radius: 4px;
+               padding: 5px;
+            }
+            QLineEdit:focus {
+               border: 1px solid #4da6ff;
+            }
+            QPushButton {
+               background-color: #555555;
+               color: white;
+               border: none;
+               padding: 6px 12px;
+               border-radius: 4px;
+            }
+            QPushButton:hover {
+               background-color: #666666;
+            }
+            QPushButton:pressed {
+               background-color: #444444;
+            }
+            QMessageBox {
+               background-color: #2d2d2d;
+               color: #ffffff;
+            }
+            QMessageBox QPushButton {
+               background-color: #555555;
+               color: white;
+               border: none;
+               padding: 5px 10px;
+               border-radius: 3px;
+            }
+            QTableWidget {
+                background-color: #333333;
+                color: #ffffff;
+                gridline-color: #444444;
+            }
+            QHeaderView::section {
+                background-color: #333333;
+                color: #ffffff;
+                border: 1px solid #555555;
+                padding: 5px;
+            }
+            QTableWidget QHeaderView::section:vertical {
+                width: 10px;                
+                text-align: center; 
+            }
+            QTableWidget::item {
+                background-color: #2d2d2d
+                border: 1px solid #444444;
+            }
+            QTableWidget::item:selected {
+                background-color: #4da6ff;  /* 选中时蓝色高亮 */
+                color: #ffffff;
+            }
+            QStatusBar {
+                background-color: #333333;
+                color: #ffffff;
+                border-top: 1px solid #444444;
+            }
+        }
+       """)
+
+    # 登录
+    pass
+    # 初始化核心模块
+    pass
+
+    # 启动主界面
+    main_window = MainWindow()
+    main_window.show()  # 显示主窗口
+
+    sys.exit(app.exec_())
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
